@@ -1,225 +1,58 @@
-/* Modern Reset */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+/* --- START STRONGER GOOGLE TRANSLATE CSS --- */
 
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
-    line-height: 1.6;
-    padding: 2rem;
-    /* Fix for Google Translate shifting body */
-    top: 0 !important; 
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-}
-
-/* Header & Translate Positioning */
-header {
-    margin-bottom: 3rem;
-    text-align: center;
-    position: relative;
-}
-
-.header-top {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
-}
-
-/* Customizing the Google Translate Widget */
-#google_translate_element {
-    display: inline-block;
-}
-
+/* 1. The Main Button Container */
 .goog-te-gadget-simple {
-    background-color: #fff !important;
-    border: 1px solid #eee !important;
-    padding: 8px 12px !important;
-    border-radius: 8px !important;
+    background-color: #ffffff !important;
+    border: 1px solid #e1e4e8 !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important; /* Rounded pill shape */
     font-family: 'Inter', sans-serif !important;
-    font-size: 14px !important;
-    cursor: pointer;
-    transition: box-shadow 0.2s;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
 }
 
+/* Hover effect */
 .goog-te-gadget-simple:hover {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-color: #4285f4 !important;
+    box-shadow: 0 2px 8px rgba(66, 133, 244, 0.15) !important;
 }
 
-.goog-te-gadget-simple img {
-    display: none; /* Hides the Google icon for a cleaner look */
+/* 2. Hide the Google Logo Icon */
+img.goog-te-gadget-icon {
+    display: none !important;
 }
 
-/* Hide the Google Top Bar */
+/* 3. Clean up the Text inside */
+.goog-te-menu-value {
+    color: #333 !important;
+    margin: 0 !important;
+}
+
+.goog-te-menu-value span {
+    color: #333 !important; 
+    font-weight: 500 !important;
+    border: none !important; /* Removes the pipe | character */
+}
+
+/* 4. Hide the 'Select Language' text specifically if you want only the current lang
+   (Optional - keep commented out if you want to see "Select Language") 
+   /* .goog-te-menu-value span:first-child { display: none; } */
+*/
+
+/* 5. Hide the Google Top Banner completely */
 .goog-te-banner-frame.skiptranslate {
     display: none !important;
-} 
+}
+
 body {
     top: 0px !important; 
 }
 
-h1 {
-    font-weight: 600;
-    font-size: 2.5rem;
-    color: #1a1a1a;
-    letter-spacing: -0.02em;
+/* 6. Hide the "Powered by Google" text */
+.goog-te-gadget {
+    color: transparent !important;
 }
-
-.subtitle {
-    color: #666;
-    margin-top: 0.5rem;
-}
-
-.timestamp {
-    font-size: 0.85rem;
-    color: #888;
-    margin-top: 1rem;
-    font-family: monospace;
-}
-
-/* Grid Layout */
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-
-@media (max-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-    .header-top {
-        justify-content: center;
-    }
-}
-
-/* Cards */
-.card {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 80vh;
-}
-
-.card-header {
-    padding: 1.5rem;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-.ga-header h2 { color: #e37400; }
-.looker-header h2 { color: #4285f4; }
-
-.card-header h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-.badge {
-    font-size: 0.75rem;
-    background: #f0f0f0;
-    padding: 4px 8px;
-    border-radius: 6px;
-    color: #555;
-    font-weight: 500;
-}
-
-/* Feed Content */
-.feed-content {
-    padding: 0 1.5rem;
-    overflow-y: auto;
-    flex-grow: 1;
-}
-
-.feed-content::-webkit-scrollbar {
-    width: 6px;
-}
-.feed-content::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-.feed-content::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 3px;
-}
-
-/* Feed Items */
-.feed-item {
-    padding: 1.5rem 0;
-    border-bottom: 1px solid #f0f0f0;
-    transition: background 0.2s;
-}
-
-.feed-item:last-child {
-    border-bottom: none;
-}
-
-.item-date {
-    font-size: 0.75rem;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.25rem;
-    display: block;
-}
-
-.item-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #222;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.item-title:hover {
-    color: #4285f4;
-}
-
-.item-desc {
-    font-size: 0.9rem;
-    color: #555;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-/* Loader */
-.loader {
-    border: 3px solid #f3f3f3;
-    border-top: 3px solid #3498db;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: spin 1s linear infinite;
-    margin: 2rem auto;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-footer {
-    text-align: center;
-    margin-top: 3rem;
-    color: #999;
-    font-size: 0.8rem;
-}
+/* --- END GOOGLE TRANSLATE CSS --- */
