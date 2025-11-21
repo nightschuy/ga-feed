@@ -11,17 +11,59 @@ body {
     color: #333;
     line-height: 1.6;
     padding: 2rem;
+    /* Fix for Google Translate shifting body */
+    top: 0 !important; 
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
-/* Header */
+/* Header & Translate Positioning */
 header {
     margin-bottom: 3rem;
     text-align: center;
+    position: relative;
+}
+
+.header-top {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+/* Customizing the Google Translate Widget */
+#google_translate_element {
+    display: inline-block;
+}
+
+.goog-te-gadget-simple {
+    background-color: #fff !important;
+    border: 1px solid #eee !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+
+.goog-te-gadget-simple:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.goog-te-gadget-simple img {
+    display: none; /* Hides the Google icon for a cleaner look */
+}
+
+/* Hide the Google Top Bar */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+} 
+body {
+    top: 0px !important; 
 }
 
 h1 {
@@ -54,6 +96,9 @@ h1 {
     .grid {
         grid-template-columns: 1fr;
     }
+    .header-top {
+        justify-content: center;
+    }
 }
 
 /* Cards */
@@ -64,7 +109,7 @@ h1 {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 80vh; /* Fixed height for scrolling */
+    height: 80vh;
 }
 
 .card-header {
@@ -99,11 +144,10 @@ h1 {
 /* Feed Content */
 .feed-content {
     padding: 0 1.5rem;
-    overflow-y: auto; /* Internal scroll */
+    overflow-y: auto;
     flex-grow: 1;
 }
 
-/* Scrollbar styling */
 .feed-content::-webkit-scrollbar {
     width: 6px;
 }
@@ -152,7 +196,7 @@ h1 {
     font-size: 0.9rem;
     color: #555;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
